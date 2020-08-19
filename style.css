@@ -4,10 +4,14 @@
 }
 
 body{
-    background-color: #00296b;
+    /* background-color: #00296b; */
+    background: rgb(0,41,107);
+    background: linear-gradient(180deg, rgba(0,41,107,1) 50%, rgba(0,41,20,1) 100%); 
     font-family: 'Nunito', sans-serif;
 }
-
+select{
+    padding: 4px;
+}
 .header {
     background-color: #00509d;
     color: #ffd500;
@@ -24,7 +28,9 @@ body{
     border-radius: 8px;
     margin: auto;
     width: max-content;
-    background-color: #ffd500;
+    /* background-color: #ffd500; */
+    background: rgb(253,133,20);
+    background: linear-gradient(163deg, rgba(253,133,20,1) 15%, rgba(255,213,0,1) 100%); 
     color: #fff;    
 }
 .toolbar {

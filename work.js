@@ -11,6 +11,10 @@ var widthselect=document.getElementById('linewidth');
 var textinp=document.getElementById('textinp');
 var textsize=document.getElementById('textsize');
 var textshow=document.getElementById('textshow');
+var regularshapesshow=document.getElementById('regularshapesshow');
+var lineshow=document.getElementById('lineshow');
+var circleshow=document.getElementById('circleshow');
+
 
 var mode='pencil';
 
@@ -21,7 +25,17 @@ var mouse ={
     y: 0
 }
 
-var textclick ={
+var click ={
+    x: 0,
+    y: 0
+}
+
+var p1 ={
+    x: 0,
+    y: 0
+}
+
+var p2 ={
     x: 0,
     y: 0
 }
@@ -51,6 +65,7 @@ function changefontsize(){
     c.font=12+9*(Number(textsize.value)-1)+'px Arial';
 }
 
+
 function changecolfrominput(id){
     var newcolor=document.getElementById(id);
     console.log(newcolor.value);
@@ -73,6 +88,9 @@ function changetopencil(){
     var selectadd=document.getElementById(mode);
     selectadd.classList.add('selectedtool');
     textshow.style.display='none';
+    regularshapesshow.style.display='none';
+    lineshow.style.display='none';
+    circleshow.style.display='none';
 }
 
 function changetotext(){
@@ -82,6 +100,9 @@ function changetotext(){
     var selectadd=document.getElementById(mode);
     selectadd.classList.add('selectedtool');
     textshow.style.display='block';
+    regularshapesshow.style.display='none';
+    lineshow.style.display='none';
+    circleshow.style.display='none';
 }
 
 function changetoeraser(){
@@ -95,6 +116,45 @@ function changetoeraser(){
     c.lineWidth=12*Number(widthselect.value);
     console.log(c.lineWidth);
     textshow.style.display='none';
+    regularshapesshow.style.display='none';
+    lineshow.style.display='none';
+    circleshow.style.display='none';
+}
+
+function changetoshapes(){
+    var selectrem=document.getElementById(mode);
+    selectrem.classList.remove('selectedtool');
+    mode='shapes';
+    var selectadd=document.getElementById(mode);
+    selectadd.classList.add('selectedtool');
+    regularshapesshow.style.display='block';
+    textshow.style.display='none';
+    lineshow.style.display='none';
+    circleshow.style.display='none';
+}
+
+function changetoline(){
+    var selectrem=document.getElementById(mode);
+    selectrem.classList.remove('selectedtool');
+    mode='line';
+    var selectadd=document.getElementById(mode);
+    selectadd.classList.add('selectedtool');
+    lineshow.style.display='block';
+    circleshow.style.display='none';
+    textshow.style.display='none';
+    regularshapesshow.style.display='none';
+}
+
+function changetocircle(){
+    var selectrem=document.getElementById(mode);
+    selectrem.classList.remove('selectedtool');
+    mode='circle';
+    var selectadd=document.getElementById(mode);
+    selectadd.classList.add('selectedtool');
+    circleshow.style.display='block';
+    textshow.style.display='none';
+    regularshapesshow.style.display='none';
+    lineshow.style.display='none';
 }
 
 function changewidth(value){
@@ -114,14 +174,14 @@ var freedraw=()=>{
         console.log('stroking',mouse);
     }
 }
-canvas.addEventListener('mousedown',(ev)=>{
+canvas.addEventListener('click',(ev)=>{
+    click.x = ev.x-rect.left;
+    click.y = ev.y-rect.top;
     if(mode=='text'){
         console.log('focused');
-        textclick.x = ev.x-rect.left;
-        textclick.y = ev.y-rect.top;
         if(textinp.value!=''){
             c.fillStyle=currentcolor.style.backgroundColor;
-            c.fillText(textinp.value,textclick.x,textclick.y);
+            c.fillText(textinp.value,click.x,click.y);
             textinp.value='';
             changetopencil();
         }
@@ -144,8 +204,85 @@ canvas.addEventListener('mousedown',(ev)=>{
         // }); 
 
     }
+    if(mode=='circle'){
+        var radiusinp=document.getElementById('radiusinp');
+        var circlefill=document.getElementById('radiuscheck');
+        if(radiusinp.value!=''){
+            if(circlefill.checked==true){
+                c.fillStyle=currentcolor.style.backgroundColor;
+                c.beginPath();
+                c.arc(click.x,click.y,Number(radiusinp.value)*37.79,0,2*Math.PI);
+                c.fill();
+                c.closePath();
+            }
+            else{
+                c.beginPath();
+                c.arc(click.x,click.y,Number(radiusinp.value)*37.79,0,2*Math.PI);
+                c.stroke();
+                c.closePath();
+            }
+        }
+    }
+    if(mode=='shapes'){
+        var sidelength=Number(document.getElementById('sidelengthinp').value)*37.79;
+        var noofsides=document.getElementById('noofsidesinp').value;
+        var ang;
+        if(Number(noofsides)%2==0 && Number(noofsides)%4==0){
+            ang=(Number(document.getElementById('anginp').value)-180/Number(noofsides))*Math.PI/180;
+        }
+        else if(Number(noofsides)%2==0){
+            ang=(Number(document.getElementById('anginp').value))*Math.PI/180;
+        }
+        else{
+            ang=(Number(document.getElementById('anginp').value)-90)*Math.PI/180;
+        }
+        
+        var a=2*Math.PI/Number(noofsides);
+        var radius=sidelength/(2*Math.sin(a/2));
+        var shapescheck=document.getElementById('shapescheck');
+        console.log(radius);
+        console.log(Number(noofsides));
+        console.log(a*180/Math.PI);
+        c.beginPath();
+        // c.translate(click.x,click.y);
+        // ang=0;
+        console.log(ang);
+        c.moveTo(click.x+radius*Math.cos(ang),click.y+radius*Math.sin(ang));
+
+        for(var i=0;i<Number(noofsides);i++){
+            c.lineTo(click.x+radius*Math.cos(ang-a*(i+1)),click.y+radius*Math.sin(ang-a*(i+1)));            
+            // console.log(radius*Math.cos(ang-a*(i+1)),radius*Math.sin(ang-a*(i+1)));            
+            // c.stroke
+        }
+        if(shapescheck.checked==true){
+            c.fillStyle=currentcolor.style.backgroundColor;
+            c.fill();
+        }
+        else{
+            c.stroke();
+        }
+        c.closePath();
+
+    }
 });
 
+canvas.addEventListener('mousedown',(ev)=>{
+    if(mode=='line'){
+        p1.x = ev.x-rect.left;
+        p1.y = ev.y-rect.top;
+        canvas.addEventListener('mouseup',(e)=>{
+            if(mode=='line'){
+                p2.x = e.x-rect.left;
+                p2.y = e.y-rect.top;
+                c.beginPath();
+                c.moveTo(p1.x,p1.y);
+                c.lineTo(p2.x,p2.y);
+                c.stroke();
+                c.closePath();
+            }
+        });
+    }
+});
 
 
 canvas.addEventListener('mousedown',(e)=>{

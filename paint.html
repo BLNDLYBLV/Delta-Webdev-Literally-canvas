@@ -21,10 +21,19 @@
                     <td>
                         <button onclick="changetotext();" id="text" class="fa fa-font tool"></button>
                     </td>
+                    <td>
+                        <button onclick="changetoeraser();" id="eraser" class="fa fa-eraser tool"></button>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <button onclick="changetoeraser();" id="eraser" class="fa fa-eraser tool"></button>
+                        <button onclick="changetoshapes();" id="shapes" class="fas fa-shapes tool"></button>
+                    </td>
+                    <td>
+                        <button onclick="changetoline();" id="line" class="fa tool">\</button>
+                    </td>
+                    <td>
+                        <button onclick="changetocircle();" id="circle" class="far fa-circle tool"></button>
                     </td>
                 </tr>
             </table>
@@ -118,8 +127,11 @@
                 </select>
             </div>
         </div> 
-        <div id="textshow" style="display: none;">
-            <input type="text" style="margin-top: 10px;width: 200px;padding: 4px; " placeholder="type here and click on the canvas " id="textinp">
+        
+        <div id="textshow" style="color: white;display: none;">
+            <span>Text:</span>
+            <input type="text" style="margin-right: 20px; margin-top: 10px;width: 200px;padding: 4px; " placeholder="Complete me" id="textinp">
+            <span>Font-size:</span>
             <select onchange="changefontsize()" name="" id="textsize" > 
                 <option value="1">Very small</option>
                 <option value="2">small</option>
@@ -128,7 +140,35 @@
                 <option value="6">Very large</option>
                 <option value="8">Extreme!</option>
             </select>
-        </div>    
+            <div style="margin-top: 10px; color: white;">
+                <span class="fa fa-question-circle"></span>
+                Type above and click anywhere on canvas and it will appear over there 
+            </div>
+        </div>  
+        <div id='regularshapesshow' style="display: none; color: white;">
+            <span>Side length:</span>
+            <input type="text" placeholder="in cm" id="sidelengthinp" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
+            <span>No of sides:</span>
+            <input type="text" id="noofsidesinp"  style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
+            <span>Angle to be rotated:</span>
+            <input type="text" id="anginp" placeholder="in deg" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
+            <span>Fill:</span>
+            <input id="shapescheck" type="checkbox">
+            <div style="margin-top: 8px;color: white;">
+                <span class="fa fa-question-circle"></span>
+                This mode here stamps a regular polygon of the above specified dimensions when you click inside the canvas
+            </div>
+        </div>  
+        <div style="margin-top: 10px; color: white;display:none;"  id="lineshow">
+            <span class="fa fa-question-circle"></span>
+            Just click drag and release and line will appear
+        </div>
+        <div id="circleshow" style="display:none; margin-top: 10px;color: white;">
+            <span>Radius:</span>
+            <input type="text" placeholder="in cm" id="radiusinp" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
+            <span>Fill:</span>
+            <input id="radiuscheck" type="checkbox">
+        </div>
     </div>
     <canvas  class="canvas"></canvas>
     <script src="work.js"></script>
