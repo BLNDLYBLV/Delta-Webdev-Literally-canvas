@@ -1,3 +1,70 @@
-p {
-background-color: aqua;
+*{
+    margin: 0%;
+    padding-block: 0%;
+}
+
+body{
+    background-color: #00296b;
+    font-family: 'Nunito', sans-serif;
+}
+
+.header {
+    background-color: #00509d;
+    color: #ffd500;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.headertxt{
+    text-align: center;
+    padding: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    border-radius: 8px;
+    margin: auto;
+    width: max-content;
+    background-color: #ffd500;
+    color: #fff;    
+}
+.toolbar {
+    background-color: #003f88;
+    padding: 10px;
+    width: 80%;
+    height: 80px;
+    margin: auto;
+    margin-top: 30px;
+}
+.canvas {
+    width: 81%;
+    height: 700px;
+    background-color: white;
+    margin: auto;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.canvas:hover{
+    cursor: crosshair;
+}
+.eachcolor{
+    padding: 0%;
+    width: 20px;
+    height: 20px;
+    margin: 0.1px;
+    border: 1px solid lightgray;
+    display: inline-block;
+    /* background-color: aquamarine; */
+}
+tr {
+    padding: 0;
+    margin: 0;
+}
+.tool{
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border:1px solid lightgray;
+    text-align: center;
+    /* padding: 3; */
 }

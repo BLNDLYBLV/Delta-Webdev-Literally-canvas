@@ -4,10 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Literally canvas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Hi</p>
+    <div class="header" ><div class="headertxt">Literally a Canvas </div> </div>
+    <div class="toolbar">
+        <div style="display: inline-block;background-color: white; padding: 6px;position: relative;top: 8px;">
+            <table>
+                <tr>
+                    <td>
+                        <button onclick="changetopencil();" class="fa fa-pencil tool "></button>
+                    </td>
+                    <td>
+                        <button onclick="changetotext();" class="fa fa-font tool"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="changetoeraser();" class="fa fa-eraser tool"></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="display: inline-block;">
+            <button style="margin: 0;padding: 0; background-color: white;border: none;padding: 5px;">
+                <div id="currentcolor" style="width: 40px;height: 40px;background-color: black ;border: 2px double lightgrey;">
+                </div>
+                <div>
+                    Color
+                </div>
+            </button>
+        </div>
+        <div style="display: inline-block;">
+            <table style="padding: 6px;position: relative;top: 8px; background-color: white; display: inline-block;"">
+                <tr>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color1" style="background-color: black;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color2" style="background-color: white;" class="eachcolor"></button>
+                    </td>
+                    <td >
+                        <button onclick="changecol(this.id);" id="color3" style="background-color: red;" class="eachcolor"></button>
+                    </td>
+                    <td >
+                        <button onclick="changecol(this.id);" id="color4" style="background-color: orangered;" class="eachcolor"></button>
+                    </td>
+                    <td >
+                        <button onclick="changecol(this.id);" id="color5" style="background-color: orange;" class="eachcolor"></button>
+                    </td>
+                    <td >
+                        <button onclick="changecol(this.id);" id="color6" style="background-color: yellow;" class="eachcolor"></button>
+                    </td>
+                    <td >
+                        <button onclick="changecol(this.id);" id="color7" style="background-color: yellowgreen;" class="eachcolor"></button>
+                    </td>
+                    <td >
+                        <button onclick="changecol(this.id);" id="color8" style="background-color: lightgreen;" class="eachcolor"></button>
+                    </td>
+                    <td >
+                        <button onclick="changecol(this.id);" id="color9" style="background-color: green;" class="eachcolor"></button>
+                    </td>
+                    <td >
+                        <button onclick="changecol(this.id);" id="color10" style="background-color: darkgreen;" class="eachcolor"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color11" style="background-color: lightskyblue;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color12" style="background-color: blue;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color13" style="background-color: blueviolet;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color14" style="background-color: purple;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color15" style="background-color: violet;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color16" style="background-color: pink;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color17" style="background-color: peachpuff;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color18" style="background-color: brown;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color19" style="background-color: darkslategrey;" class="eachcolor"></button>
+                    </td>
+                    <td>
+                        <button onclick="changecol(this.id);" id="color20" style="background-color: lightgray;" class="eachcolor"></button>
+                    </td>
+                </tr>
+            </table>
+        </div> 
+        <div style="display: inline-block;">
+            <input onchange="changecolfrominput(this.id)"  type="color" name="" id="inputcolor">
+            <div>
+                <select onchange="changewidth(this.value)" style="padding: 5px;" name="" id="linewidth">
+                    <!-- <option selected value="none">Select option</option> -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+        </div> 
+        
+    </div>
+    <canvas  class="canvas"></canvas>
     <script src="work.js"></script>
 </body>
 </html>
