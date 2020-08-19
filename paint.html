@@ -58,7 +58,9 @@
                 <img src="/images/fill.jpg" style="width:100px; padding: 20px;" alt="">
                 <div style="display: inline-block;position: relative;top: -35px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the fill checkbox. If it is ticked the shape formed will be filled with the current color chosen</div>
             </div>
+            <div style="margin: auto;width: max-content;padding: 20px;color: white;">And if the accuracy is not correct just scroll and try again</div>
             <div style="margin: auto;width: max-content;padding: 20px;font-size: 30px;color: white;font-weight: bold;">Have a fun time 😇</div>
+            
         </div>
     </div>
     <div class="toolbar">
@@ -197,13 +199,21 @@
                 <span>Text:</span>
                 <input value=" " type="text" style="margin-right: 20px; margin-top: 10px;width: 200px;padding: 4px; " placeholder="Complete me" id="textinp">
                 <span>Font-size:</span>
-                <select onchange="changefontsize()" name="" id="textsize" > 
+                <select onchange="changefont()" name="" id="textsize" > 
                     <option value="1">Very small</option>
                     <option value="2">small</option>
                     <option value="3">medium</option>
                     <option value="4">Large</option>
                     <option value="6">Very large</option>
                     <option value="8">Extreme!</option>
+                </select>
+                <span style="margin-left: 20px;">Font-style:</span>
+                <select onchange="changefont()" name="" id="font">
+                    <option value="Arial">Arial</option>
+                    <option value="Comic Sans MS">Comic Sans</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Courier">Courier</option>
                 </select>
                 <div style="margin-top: 10px; color: white;">
                     <span class="fa fa-question-circle"></span>

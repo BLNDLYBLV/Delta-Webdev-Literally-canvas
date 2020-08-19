@@ -15,11 +15,15 @@ var regularshapesshow=document.getElementById('regularshapesshow');
 var lineshow=document.getElementById('lineshow');
 var circleshow=document.getElementById('circleshow');
 var help=document.getElementById('help');
+var font=document.getElementById('font');
 var helpmodal=document.getElementById('helpmodal');
 
 function helpmodalon(){
     helpmodal.style.display='block';
 }
+
+font.value='Arial';
+changefont();
 
 window.addEventListener('click',(event)=>{
     if(event.target.id=='helpmodal'){
@@ -72,9 +76,10 @@ canvas.addEventListener('mousemove',(e)=>{
     // console.log(mouse);
 });
 
-function changefontsize(){
-    c.font=12+9*(Number(textsize.value)-1)+'px Arial';
+function changefont(){
+    c.font=12+9*(Number(textsize.value)-1)+'px '+font.value;
 }
+
 
 
 function changecolfrominput(id){
