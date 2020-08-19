@@ -12,7 +12,7 @@
 <body>
     <div class="header" ><div class="headertxt">Literally a Canvas </div> </div>
     <div class="toolbar">
-        <div style="display: inline-block;background-color: white; padding: 6px;position: relative;top: 8px;">
+        <div style="margin-right: 10px; border-radius: 8px; display: inline-block;background-color: white; padding: 6px;position: relative;top: 8px;">
             <table>
                 <tr>
                     <td>
@@ -29,8 +29,8 @@
                 </tr>
             </table>
         </div>
-        <div style="display: inline-block;">
-            <button style="margin: 0;padding: 0; background-color: white;border: none;padding: 5px;">
+        <div style="margin-right: 10px;display: inline-block;">
+            <button style="border-radius: 4px;margin: 0;padding: 0; background-color: white;border: none;padding: 5px;">
                 <div id="currentcolor" style="width: 40px;height: 40px;background-color: black ;border: 2px double lightgrey;">
                 </div>
                 <div>
@@ -38,8 +38,8 @@
                 </div>
             </button>
         </div>
-        <div style="display: inline-block;">
-            <table style="padding: 6px;position: relative;top: 8px; background-color: white; display: inline-block;"">
+        <div style="margin-right: 10px;border-radius: 8px;display: inline-block;">
+            <table style="border-radius: 5px;padding: 6px;position: relative;top: 8px; background-color: white; display: inline-block;"">
                 <tr>
                     <td>
                         <button onclick="changecol(this.id);" id="color1" style="background-color: black;" class="eachcolor"></button>
@@ -106,9 +106,9 @@
                 </tr>
             </table>
         </div> 
-        <div style="display: inline-block;">
-            <input onchange="changecolfrominput(this.id)"  type="color" name="" id="inputcolor">
-            <div>
+        <div style="margin-right: 10px;display: inline-block;">
+            <input style="margin-bottom: 12px;" onchange="changecolfrominput(this.id)"  type="color" name="" id="inputcolor">
+            <div style="margin-bottom: 25px;">
                 <select onchange="changewidth(this.value)" style="padding: 5px;" name="" id="linewidth">
                     <!-- <option selected value="none">Select option</option> -->
                     <option value="1">1</option>
