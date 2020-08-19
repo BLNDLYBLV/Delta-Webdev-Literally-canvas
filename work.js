@@ -14,7 +14,18 @@ var textshow=document.getElementById('textshow');
 var regularshapesshow=document.getElementById('regularshapesshow');
 var lineshow=document.getElementById('lineshow');
 var circleshow=document.getElementById('circleshow');
+var help=document.getElementById('help');
+var helpmodal=document.getElementById('helpmodal');
 
+function helpmodalon(){
+    helpmodal.style.display='block';
+}
+
+window.addEventListener('click',(event)=>{
+    if(event.target.id=='helpmodal'){
+        helpmodal.style.display='none';
+    }
+});
 
 var mode='pencil';
 
@@ -103,6 +114,7 @@ function changetotext(){
     regularshapesshow.style.display='none';
     lineshow.style.display='none';
     circleshow.style.display='none';
+    help.style.display='none';
 }
 
 function changetoeraser(){
@@ -119,6 +131,7 @@ function changetoeraser(){
     regularshapesshow.style.display='none';
     lineshow.style.display='none';
     circleshow.style.display='none';
+    help.style.display='none';
 }
 
 function changetoshapes(){
@@ -131,6 +144,7 @@ function changetoshapes(){
     textshow.style.display='none';
     lineshow.style.display='none';
     circleshow.style.display='none';
+    help.style.display='none';
 }
 
 function changetoline(){
@@ -143,6 +157,7 @@ function changetoline(){
     circleshow.style.display='none';
     textshow.style.display='none';
     regularshapesshow.style.display='none';
+    help.style.display='none';
 }
 
 function changetocircle(){
@@ -155,6 +170,7 @@ function changetocircle(){
     textshow.style.display='none';
     regularshapesshow.style.display='none';
     lineshow.style.display='none';
+    help.style.display='none';
 }
 
 function changewidth(value){

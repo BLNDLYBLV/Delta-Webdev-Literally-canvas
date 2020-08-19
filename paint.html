@@ -10,164 +10,230 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header" ><div class="headertxt">Literally a Canvas </div> </div>
+    <div class="header" ><div onclick="helpmodalon();" class="headertxt">Literally a Canvas </div> </div>
+    <div class="helpmodal" id="helpmodal">
+        <div class="actualmodal">
+            <div style="margin: auto;width: max-content;padding: 20px;font-size: 30px;color: white;font-weight: bold;">Literally a canvas</div>
+            <div>
+                <img src="/images/pencil-tool.jpg" style="width:100px; padding: 20px;" alt="">
+                <div style="display: inline-block;position: relative;top:-50px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the pencil tool. It is used to freedraw inside the canvas.</div>
+            </div>
+            <div>
+                <img src="/images/text-tool.jpg" style="width:100px; padding: 20px;" alt="">
+                <div style="display: inline-block;position: relative;top:-50px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the text tool. It is used put a text inside of the canvas</div>
+            </div>
+            <div>
+                <img src="/images/eraser-tool.jpg" style="width:100px; padding: 20px;" alt="">
+                <div style="display: inline-block;position: relative;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the eraser tool. It is used to erase the content on the canvas. Think of it as an white pencil. And it has bit more width than pencil tool as i find it annoying for an eraser tool to be small</div>
+            </div>
+            <div>
+                <img src="/images/shapes-tool.jpg" style="width:100px; padding: 20px;padding-top: 70px;" alt="">
+                <div style="display: inline-block;position: relative;top: 40px; color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the shapes tool. It is used to draw regular polygons when it is specified with no of sides and side's length. When provided the specifics if you click on the canvas a regular polygon is stamped with center as the click point. Pro tip if want a background of some color choose the color and give great side length like 100 and tick the fill box, and just stamp on the canvas to get the background ! </div>
+            </div>
+            <div>
+                <img src="/images/line-tool.jpg" style="width:100px; padding: 20px;padding-top: 80px;" alt="">
+                <div style="display: inline-block;position: relative;top: -25px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the line tool. It is used to draw straight lines. Just click at a point (p1) drag and release at point (p2), There will be a line b/w p1 and p2 </div>
+            </div>
+            <div>
+                <img src="/images/circle-tool.jpg" style="width:100px; padding: 20px;" alt="">
+                <div style="display: inline-block;position: relative;top: -35px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the circle tool. If you specify the radius and click on the canvas a circle will be formed with center as the click point.  </div>
+            </div>
+            <div>
+                <img src="/images/current-color.jpg" style="width:100px; padding: 20px;" alt="">
+                <div style="display: inline-block;position: relative;top: -60px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is your current chosen color. It is always updated when you choose a color</div>
+            </div>
+            <div>
+                <img src="/images/color pallete.jpg" style="width:100px; padding: 20px;padding-top: 30px;" alt="">
+                <div style="display: inline-block;position: relative;top: -20px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the color pallete. You can choose from the different predefined colors provided by clicking the color</div>
+            </div>
+            <div>
+                <img src="/images/choose-color.jpg" style="width:100px; padding: 20px;padding-top: 30px;" alt="">
+                <div style="display: inline-block;position: relative;top: -25px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the color chooser. If you are not satisfied with the colors provided in thecolor pallete you can choose any color in the world here ! </div>
+            </div>
+            <div>
+                <img src="/images/line-width.jpg" style="width:100px; padding: 20px;" alt="">
+                <div style="display: inline-block;position: relative;top: -25px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the line width chooser. You can choose the width of your lines from the four options provided from 1 being the thinnest to 4 being the largest</div>
+            </div>
+            <div>
+                <img src="/images/fill.jpg" style="width:100px; padding: 20px;" alt="">
+                <div style="display: inline-block;position: relative;top: -35px ;color: white; max-width: 500px;font-weight: 400;font-size: 18px;">This is the fill checkbox. If it is ticked the shape formed will be filled with the current color chosen</div>
+            </div>
+            <div style="margin: auto;width: max-content;padding: 20px;font-size: 30px;color: white;font-weight: bold;">Have a fun time 😇</div>
+        </div>
+    </div>
     <div class="toolbar">
-        <div style="margin-right: 10px; border-radius: 8px; display: inline-block;background-color: white; padding: 6px;position: relative;top: 8px;">
-            <table>
-                <tr>
-                    <td>
-                        <button onclick="changetopencil();" id="pencil" class="fa fa-pencil tool selectedtool"></button>
-                    </td>
-                    <td>
-                        <button onclick="changetotext();" id="text" class="fa fa-font tool"></button>
-                    </td>
-                    <td>
-                        <button onclick="changetoeraser();" id="eraser" class="fa fa-eraser tool"></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button onclick="changetoshapes();" id="shapes" class="fas fa-shapes tool"></button>
-                    </td>
-                    <td>
-                        <button onclick="changetoline();" id="line" class="fa tool">\</button>
-                    </td>
-                    <td>
-                        <button onclick="changetocircle();" id="circle" class="far fa-circle tool"></button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div style="margin-right: 10px;display: inline-block;">
-            <button style="border-radius: 4px;margin: 0;padding: 0; background-color: white;border: none;padding: 5px;">
-                <div id="currentcolor" style="width: 40px;height: 40px;background-color: black ;border: 2px double lightgrey;">
+        <div style="margin-left: 15px;  width: max-content; margin: auo;">
+            <div style="margin-right: 50px; border-radius: 8px; display: inline-block;background-color: white; padding: 6px;position: relative;top: 8px;">
+                <table>
+                    <tr>
+                        <td>
+                            <button onclick="changetopencil();" id="pencil" class="fa fa-pencil tool selectedtool"></button>
+                        </td>
+                        <td>
+                            <button onclick="changetotext();" id="text" class="fa fa-font tool"></button>
+                        </td>
+                        <td>
+                            <button onclick="changetoeraser();" id="eraser" class="fa fa-eraser tool"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onclick="changetoshapes();" id="shapes" class="fas fa-shapes tool"></button>
+                        </td>
+                        <td>
+                            <button onclick="changetoline();" id="line" class="fa tool">\</button>
+                        </td>
+                        <td>
+                            <button onclick="changetocircle();" id="circle" class="far fa-circle tool"></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-right: 10px;display: inline-block;">
+                <button style="border-radius: 4px;margin: 0;padding: 0; background-color: white;border: none;padding: 5px;">
+                    <div id="currentcolor" style="width: 40px;height: 40px;background-color: black ;border: 2px double lightgrey;">
+                    </div>
+                    <div>
+                        Color
+                    </div>
+                </button>
+            </div>
+            <div style="margin-right: 50px;border-radius: 8px;display: inline-block;">
+                <table style="border-radius: 5px;padding: 6px;position: relative;top: 8px; background-color: white; display: inline-block;"">
+                    <tr>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color1" style="background-color: black;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color2" style="background-color: white;" class="eachcolor"></button>
+                        </td>
+                        <td >
+                            <button onclick="changecol(this.id);" id="color3" style="background-color: red;" class="eachcolor"></button>
+                        </td>
+                        <td >
+                            <button onclick="changecol(this.id);" id="color4" style="background-color: orangered;" class="eachcolor"></button>
+                        </td>
+                        <td >
+                            <button onclick="changecol(this.id);" id="color5" style="background-color: orange;" class="eachcolor"></button>
+                        </td>
+                        <td >
+                            <button onclick="changecol(this.id);" id="color6" style="background-color: yellow;" class="eachcolor"></button>
+                        </td>
+                        <td >
+                            <button onclick="changecol(this.id);" id="color7" style="background-color: yellowgreen;" class="eachcolor"></button>
+                        </td>
+                        <td >
+                            <button onclick="changecol(this.id);" id="color8" style="background-color: lightgreen;" class="eachcolor"></button>
+                        </td>
+                        <td >
+                            <button onclick="changecol(this.id);" id="color9" style="background-color: green;" class="eachcolor"></button>
+                        </td>
+                        <td >
+                            <button onclick="changecol(this.id);" id="color10" style="background-color: darkgreen;" class="eachcolor"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color11" style="background-color: lightskyblue;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color12" style="background-color: blue;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color13" style="background-color: blueviolet;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color14" style="background-color: purple;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color15" style="background-color: violet;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color16" style="background-color: pink;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color17" style="background-color: peachpuff;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color18" style="background-color: brown;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color19" style="background-color: darkslategrey;" class="eachcolor"></button>
+                        </td>
+                        <td>
+                            <button onclick="changecol(this.id);" id="color20" style="background-color: lightgray;" class="eachcolor"></button>
+                        </td>
+                    </tr>
+                </table>
+            </div> 
+            <div style="margin-right: 30px;display: inline-block;">
+                <input style="margin-top: 7px; margin-bottom: 7px;" onchange="changecolfrominput(this.id)"  type="color" name="" id="inputcolor">
+                <div style="color: white;position: relative;left: -13px;font-weight: bold; "> 
+                    Choose color
                 </div>
-                <div>
-                    Color
-                </div>
-            </button>
-        </div>
-        <div style="margin-right: 10px;border-radius: 8px;display: inline-block;">
-            <table style="border-radius: 5px;padding: 6px;position: relative;top: 8px; background-color: white; display: inline-block;"">
-                <tr>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color1" style="background-color: black;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color2" style="background-color: white;" class="eachcolor"></button>
-                    </td>
-                    <td >
-                        <button onclick="changecol(this.id);" id="color3" style="background-color: red;" class="eachcolor"></button>
-                    </td>
-                    <td >
-                        <button onclick="changecol(this.id);" id="color4" style="background-color: orangered;" class="eachcolor"></button>
-                    </td>
-                    <td >
-                        <button onclick="changecol(this.id);" id="color5" style="background-color: orange;" class="eachcolor"></button>
-                    </td>
-                    <td >
-                        <button onclick="changecol(this.id);" id="color6" style="background-color: yellow;" class="eachcolor"></button>
-                    </td>
-                    <td >
-                        <button onclick="changecol(this.id);" id="color7" style="background-color: yellowgreen;" class="eachcolor"></button>
-                    </td>
-                    <td >
-                        <button onclick="changecol(this.id);" id="color8" style="background-color: lightgreen;" class="eachcolor"></button>
-                    </td>
-                    <td >
-                        <button onclick="changecol(this.id);" id="color9" style="background-color: green;" class="eachcolor"></button>
-                    </td>
-                    <td >
-                        <button onclick="changecol(this.id);" id="color10" style="background-color: darkgreen;" class="eachcolor"></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color11" style="background-color: lightskyblue;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color12" style="background-color: blue;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color13" style="background-color: blueviolet;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color14" style="background-color: purple;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color15" style="background-color: violet;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color16" style="background-color: pink;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color17" style="background-color: peachpuff;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color18" style="background-color: brown;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color19" style="background-color: darkslategrey;" class="eachcolor"></button>
-                    </td>
-                    <td>
-                        <button onclick="changecol(this.id);" id="color20" style="background-color: lightgray;" class="eachcolor"></button>
-                    </td>
-                </tr>
-            </table>
-        </div> 
-        <div style="margin-right: 10px;display: inline-block;">
-            <input style="margin-bottom: 12px;" onchange="changecolfrominput(this.id)"  type="color" name="" id="inputcolor">
-            <div style="margin-bottom: 5px;">
-                <select onchange="changewidth(this.value)" style="padding: 5px;" name="" id="linewidth">
+            </div> 
+            <div style="margin-bottom: 5px; display: inline-block;">
+                <select onchange="changewidth(this.value)" style="margin-bottom: 5px; padding: 5px;" name="" id="linewidth">
                     <!-- <option selected value="none">Select option</option> -->
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
+                <div style="color: white;position: relative;left: -18px;font-weight: bold; "> 
+                    Line width
+                </div>
             </div>
-        </div> 
-        
-        <div id="textshow" style="color: white;display: none;">
-            <span>Text:</span>
-            <input type="text" style="margin-right: 20px; margin-top: 10px;width: 200px;padding: 4px; " placeholder="Complete me" id="textinp">
-            <span>Font-size:</span>
-            <select onchange="changefontsize()" name="" id="textsize" > 
-                <option value="1">Very small</option>
-                <option value="2">small</option>
-                <option value="3">medium</option>
-                <option value="4">Large</option>
-                <option value="6">Very large</option>
-                <option value="8">Extreme!</option>
-            </select>
-            <div style="margin-top: 10px; color: white;">
+            <div style="display: inline-block;width: max-content;margin-left: auto;position: relative;top: -20px;left: 30px;">
+                <button onclick="location.reload();" class="headertxt" style="font-size: 18px;border: none;">Clear</button>
+            </div>
+            <div id="help" style="display: non;color: white;">
+                <div style="margin-top: 10px; color: white;">
+                    <span class="fa fa-question-circle"></span>
+                    Try clicking the logo if you are stuck
+                </div>
+            </div>
+            <div id="textshow" style="color: white;display: none;">
+                <span>Text:</span>
+                <input value=" " type="text" style="margin-right: 20px; margin-top: 10px;width: 200px;padding: 4px; " placeholder="Complete me" id="textinp">
+                <span>Font-size:</span>
+                <select onchange="changefontsize()" name="" id="textsize" > 
+                    <option value="1">Very small</option>
+                    <option value="2">small</option>
+                    <option value="3">medium</option>
+                    <option value="4">Large</option>
+                    <option value="6">Very large</option>
+                    <option value="8">Extreme!</option>
+                </select>
+                <div style="margin-top: 10px; color: white;">
+                    <span class="fa fa-question-circle"></span>
+                    Type above and click anywhere on canvas and it will appear over there 
+                </div>
+            </div>  
+            <div id='regularshapesshow' style="display: none; color: white;">
+                <span>Side length:</span>
+                <input value=" " type="text" placeholder="in cm" id="sidelengthinp" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
+                <span>No of sides:</span>
+                <input value=" " type="text" id="noofsidesinp"  style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
+                <span>Angle to be rotated:</span>
+                <input value=" " type="text" id="anginp" placeholder="in deg" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
+                <span>Fill:</span>
+                <input id="shapescheck" type="checkbox">
+                <div style="margin-top: 8px;color: white;">
+                    <span class="fa fa-question-circle"></span>
+                    This mode here stamps a regular polygon of the above specified dimensions when you click inside the canvas
+                </div>
+            </div>  
+            <div style="margin-top: 10px; color: white;display:none;"  id="lineshow">
                 <span class="fa fa-question-circle"></span>
-                Type above and click anywhere on canvas and it will appear over there 
+                Just click drag and release and line will appear
             </div>
-        </div>  
-        <div id='regularshapesshow' style="display: none; color: white;">
-            <span>Side length:</span>
-            <input type="text" placeholder="in cm" id="sidelengthinp" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
-            <span>No of sides:</span>
-            <input type="text" id="noofsidesinp"  style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
-            <span>Angle to be rotated:</span>
-            <input type="text" id="anginp" placeholder="in deg" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
-            <span>Fill:</span>
-            <input id="shapescheck" type="checkbox">
-            <div style="margin-top: 8px;color: white;">
-                <span class="fa fa-question-circle"></span>
-                This mode here stamps a regular polygon of the above specified dimensions when you click inside the canvas
+            <div id="circleshow" style="display:none; margin-top: 10px;color: white;">
+                <span>Radius:</span>
+                <input value=" " type="text" placeholder="in cm" id="radiusinp" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
+                <span>Fill:</span>
+                <input id="radiuscheck" type="checkbox">
             </div>
-        </div>  
-        <div style="margin-top: 10px; color: white;display:none;"  id="lineshow">
-            <span class="fa fa-question-circle"></span>
-            Just click drag and release and line will appear
-        </div>
-        <div id="circleshow" style="display:none; margin-top: 10px;color: white;">
-            <span>Radius:</span>
-            <input type="text" placeholder="in cm" id="radiusinp" style="margin-right: 20px; margin-top: 10px;width: 80px;padding: 4px; ">
-            <span>Fill:</span>
-            <input id="radiuscheck" type="checkbox">
         </div>
     </div>
     <canvas  class="canvas"></canvas>

@@ -6,7 +6,7 @@
 body{
     /* background-color: #00296b; */
     background: rgb(0,41,107);
-    background: linear-gradient(180deg, rgba(0,41,107,1) 50%, rgba(0,41,20,1) 100%); 
+    background: linear-gradient(180deg, rgba(0,41,107,1) 50%, rgba(0,41,70,1) 100%); 
     font-family: 'Nunito', sans-serif;
 }
 select{
@@ -33,10 +33,14 @@ select{
     background: linear-gradient(163deg, rgba(253,133,20,1) 15%, rgba(255,213,0,1) 100%); 
     color: #fff;    
 }
+.headertxt:hover{
+    cursor: pointer;
+}
 .toolbar {
     background-color: #003f88;
     padding: 10px;
     width: 80%;
+    border-radius: 10px;
     /* height: 80px; */
     margin-bottom: -70px;
     margin: auto;
@@ -78,4 +82,28 @@ tr {
 .selectedtool {
     border:1px solid #3377ee;
     background-color: rgba(50,120,255,0.2);
+}
+.helpmodal{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0 ,0, 0.5) ;
+    display: none;
+    /* filter: brightness(50%); */
+}
+.actualmodal{
+    width: 700px;
+    height: 700px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -350px;
+    margin-left: -350px;
+    border: 2px solid white;
+    border-radius: 30px;
+    background-color: rgb(0,200,247);
+    overflow: auto;
 }
