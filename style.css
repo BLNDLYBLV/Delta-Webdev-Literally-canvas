@@ -31,7 +31,8 @@ body{
     background-color: #003f88;
     padding: 10px;
     width: 80%;
-    height: 80px;
+    /* height: 80px; */
+    margin-bottom: -70px;
     margin: auto;
     margin-top: 30px;
 }
@@ -67,4 +68,8 @@ tr {
     border:1px solid lightgray;
     text-align: center;
     /* padding: 3; */
+}
+.selectedtool {
+    border:1px solid #3377ee;
+    background-color: rgba(50,120,255,0.2);
 }

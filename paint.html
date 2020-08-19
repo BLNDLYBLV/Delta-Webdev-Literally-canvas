@@ -16,15 +16,15 @@
             <table>
                 <tr>
                     <td>
-                        <button onclick="changetopencil();" class="fa fa-pencil tool "></button>
+                        <button onclick="changetopencil();" id="pencil" class="fa fa-pencil tool selectedtool"></button>
                     </td>
                     <td>
-                        <button onclick="changetotext();" class="fa fa-font tool"></button>
+                        <button onclick="changetotext();" id="text" class="fa fa-font tool"></button>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button onclick="changetoeraser();" class="fa fa-eraser tool"></button>
+                        <button onclick="changetoeraser();" id="eraser" class="fa fa-eraser tool"></button>
                     </td>
                 </tr>
             </table>
@@ -108,7 +108,7 @@
         </div> 
         <div style="margin-right: 10px;display: inline-block;">
             <input style="margin-bottom: 12px;" onchange="changecolfrominput(this.id)"  type="color" name="" id="inputcolor">
-            <div style="margin-bottom: 25px;">
+            <div style="margin-bottom: 5px;">
                 <select onchange="changewidth(this.value)" style="padding: 5px;" name="" id="linewidth">
                     <!-- <option selected value="none">Select option</option> -->
                     <option value="1">1</option>
@@ -118,7 +118,17 @@
                 </select>
             </div>
         </div> 
-        
+        <div id="textshow" style="display: none;">
+            <input type="text" style="margin-top: 10px;width: 200px;padding: 4px; " placeholder="type here and click on the canvas " id="textinp">
+            <select onchange="changefontsize()" name="" id="textsize" > 
+                <option value="1">Very small</option>
+                <option value="2">small</option>
+                <option value="3">medium</option>
+                <option value="4">Large</option>
+                <option value="6">Very large</option>
+                <option value="8">Extreme!</option>
+            </select>
+        </div>    
     </div>
     <canvas  class="canvas"></canvas>
     <script src="work.js"></script>

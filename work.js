@@ -7,11 +7,21 @@ c.imageSmoothingEnabled=true;
 
 var currentcolor=document.getElementById('currentcolor');
 var inputcolor=document.getElementById('inputcolor');
-var widthselect=document.getElementsByTagName('select')[0];
+var widthselect=document.getElementById('linewidth');
+var textinp=document.getElementById('textinp');
+var textsize=document.getElementById('textsize');
+var textshow=document.getElementById('textshow');
 
 var mode='pencil';
 
+var text='';
+
 var mouse ={
+    x: 0,
+    y: 0
+}
+
+var textclick ={
     x: 0,
     y: 0
 }
@@ -23,6 +33,7 @@ var rect = canvas.getBoundingClientRect();
 
 c.strokeStyle= currentcolor.style.backgroundColor;
 c.lineWidth=Number(widthselect.value);
+c.font=12+9*(Number(textsize.value)-1)+'px Arial';
 
 
 window.addEventListener('scroll',()=>{
@@ -35,6 +46,10 @@ canvas.addEventListener('mousemove',(e)=>{
     mouse.y = e.y-rect.top;
     // console.log(mouse);
 });
+
+function changefontsize(){
+    c.font=12+9*(Number(textsize.value)-1)+'px Arial';
+}
 
 function changecolfrominput(id){
     var newcolor=document.getElementById(id);
@@ -52,15 +67,34 @@ function changecol(id){
 function changetopencil(){
     c.strokeStyle= currentcolor.style.backgroundColor;
     c.lineWidth=Number(widthselect.value);
+    var selectrem=document.getElementById(mode);
+    selectrem.classList.remove('selectedtool');
     mode='pencil';
+    var selectadd=document.getElementById(mode);
+    selectadd.classList.add('selectedtool');
+    textshow.style.display='none';
+}
+
+function changetotext(){
+    var selectrem=document.getElementById(mode);
+    selectrem.classList.remove('selectedtool');
+    mode='text';
+    var selectadd=document.getElementById(mode);
+    selectadd.classList.add('selectedtool');
+    textshow.style.display='block';
 }
 
 function changetoeraser(){
     c.strokeStyle= '#fff';
+    var selectrem=document.getElementById(mode);
+    selectrem.classList.remove('selectedtool');
     mode='eraser';
+    var selectadd=document.getElementById(mode);
+    selectadd.classList.add('selectedtool');
     // console.log(2*Number(widthselect.value));
     c.lineWidth=12*Number(widthselect.value);
     console.log(c.lineWidth);
+    textshow.style.display='none';
 }
 
 function changewidth(value){
@@ -74,19 +108,59 @@ function changewidth(value){
 }
 
 var freedraw=()=>{
-    c.lineTo(mouse.x,mouse.y);
-    c.stroke();
-    console.log('stroking',mouse);
+    if(mode=='pencil' || mode=='eraser'){
+        c.lineTo(mouse.x,mouse.y);
+        c.stroke();
+        console.log('stroking',mouse);
+    }
 }
+canvas.addEventListener('mousedown',(ev)=>{
+    if(mode=='text'){
+        console.log('focused');
+        textclick.x = ev.x-rect.left;
+        textclick.y = ev.y-rect.top;
+        if(textinp.value!=''){
+            c.fillStyle=currentcolor.style.backgroundColor;
+            c.fillText(textinp.value,textclick.x,textclick.y);
+            textinp.value='';
+            changetopencil();
+        }
+        // window.addEventListener('keydown',(e)=>{
+        //     if(mode='text'){
+        //         if(e.key!='Enter'){
+        //             if(e.key=='Backspace'){
+        //                 text=text.substr(0,text.length-1);
+        //             }
+        //             else{
+        //                 console.log('enters');
+        //                 // text.push(e.key);
+        //                 text=text+e.key;
+        //             }
+                    
+        //         }
+        //         // console.log(e.key);
+        //         // console.log(textinp.value);
+        //     }
+        // }); 
+
+    }
+});
+
+
 
 canvas.addEventListener('mousedown',(e)=>{
-    c.beginPath();
-    c.moveTo(mouse.x,mouse.y);
-    console.log('mouse down');
-    canvas.addEventListener('mousemove',freedraw,false);
+    if(mode=='pencil' || mode=='eraser'){
+        c.beginPath();
+        c.moveTo(mouse.x,mouse.y);
+        console.log('mouse down');
+        canvas.addEventListener('mousemove',freedraw,false);
+    }    
 },false);
 canvas.addEventListener('mouseup',(e)=>{
-    console.log('mouseup');
-    c.closePath();
-    canvas.removeEventListener('mousemove',freedraw,false); 
+    if(mode=='pencil' || mode=='eraser')
+    {
+        console.log('mouseup');
+        c.closePath();
+        canvas.removeEventListener('mousemove',freedraw,false); 
+    }
 });
